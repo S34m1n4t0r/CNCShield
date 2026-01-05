@@ -11,7 +11,7 @@ How to use it:
         - motor_id 0 -> X axis
         - motor_id 1 -> Y axis
         - motor_id 2 -> Z axis
-        - (for now only X, Y and Z axis work)
+        - modor_id 3 -> A axis
     5. Set the direction (*CLOCKWISE* or *COUNTER*) of the *StepperMotor* using *StepperMotor.set_dir()*.
     6. Call *StepperMotor.step()* every time you want your stepper motor to make a step.
     * for a working examples see examples.

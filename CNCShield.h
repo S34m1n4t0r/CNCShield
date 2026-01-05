@@ -9,6 +9,8 @@
 #ifndef __CNCSHIELD_H__
 #define __CNCSHIELD_H__
 
+#define NUM_MOTORS          4
+
 typedef enum {
     COUNTER = 0,
     CLOCKWISE
@@ -56,7 +58,7 @@ public:
 class CNCShield {
 private:
     int             enable_pin;
-    StepperMotor    motors[3];
+    StepperMotor    motors[NUM_MOTORS];
 
 public:
     CNCShield();

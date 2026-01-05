@@ -9,13 +9,17 @@
 #include "CNCShield.h"
 #include "Arduino.h"
 
+#define NUM_MOTORS          4
+
 #define X_STP_PIN           2
 #define Y_STP_PIN           3
 #define Z_STP_PIN           4
+#define A_STP_PIN          12
 
 #define X_DIR_PIN           5
 #define Y_DIR_PIN           6
 #define Z_DIR_PIN           7
+#define A_DIR_PIN          13
 
 #define SHIELD_EN_PIN       8
 
@@ -31,6 +35,9 @@ CNCShield::CNCShield()
 
     motors[2].set_stp_pin(Z_STP_PIN);
     motors[2].set_dir_pin(Z_DIR_PIN);
+    
+    motors[3].set_stp_pin(A_STP_PIN);
+    motors[3].set_dir_pin(A_DIR_PIN);
 
     enable_pin = SHIELD_EN_PIN;
 }
@@ -39,7 +46,7 @@ void CNCShield::begin()
 {
     pinMode(enable_pin, OUTPUT);
 
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < NUM_MOTORS; i++) {
         motors[i].init();
     }
 
@@ -68,8 +75,8 @@ void CNCShield::disable()
 
 StepperMotor* CNCShield::get_motor(unsigned int motor_id)
 {
-    if (motor_id > 2)
-        return &motors[2];
+    if (motor_id > (NUM_MOTORS-1))
+        return &motors[(NUM_MOTORS-1)];
 
     return &motors[motor_id];
 }

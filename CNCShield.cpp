@@ -9,8 +9,6 @@
 #include "CNCShield.h"
 #include "Arduino.h"
 
-#define NUM_MOTORS          4
-
 #define X_STP_PIN           2
 #define Y_STP_PIN           3
 #define Z_STP_PIN           4
